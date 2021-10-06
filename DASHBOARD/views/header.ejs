@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#ntoggle"
+      aria-controls="navbarTogglerDemo01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ntoggle">
+      <a class="navbar-brand" href="/">
+        <img
+          src="<%= bot.avatar %>"
+          clas="d-inline-block align-top"
+          alt="<%= bot.name %>"
+          width="30"
+          height="30"
+        />
+        <b><%= bot.name %></b>
+      </a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="/commands" class="nav-link">Commands</a>
+        </li>
+        <li class="nav-item">
+          <a href="<%= bot.invite %>" class="nav-link">Invite</a>
+        </li>
+      </ul>
+
+      <form action="" class="d-flex">
+        <button class="btn" type="button">
+          <b>Login</b>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
