@@ -1,0 +1,11 @@
+.command_head{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+
+}
+
+#category{
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
