@@ -10,7 +10,7 @@
         "name": "help",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD"],
+        "permissions": ["MANAGE_GUILD"],
         "aliases": ["h"],
         "usuage": "?help <cmd>"
       },
@@ -18,7 +18,7 @@
         "name": "kill",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
+        "permissions": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
         "aliases": [],
         "usuage": "?kill silent"
       },
@@ -26,7 +26,7 @@
         "name": "emoji_pp",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
+        "permissions": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
         "aliases": ["pp", "epp"],
         "usuage": "?emoi_pp <hard/soft/no_pp>"
       }
@@ -36,7 +36,7 @@
         "name": "ban",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD"],
+        "permissions": ["MANAGE_GUILD"],
         "aliases": ["ac","addc"],
         "usuage": "?ban <@mention> <reason>"
       },
@@ -44,7 +44,7 @@
         "name": "kick",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
+        "permissions": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
         "aliases": ["kick"],
         "usuage": "?kick <@mention> <reason>"
       },
@@ -52,7 +52,7 @@
         "name": "mute",
         "category": "basic",
         "description": "Add the code on website with the help of this command.",
-        "permission": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
+        "permissions": ["MANAGE_GUILD", "MANAGE_MESSAGES", "BAN_NERD"],
         "aliases": ["mute"],
         "usuage": "?mute <@mention> <reason>"
       }

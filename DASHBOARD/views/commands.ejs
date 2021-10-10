@@ -24,7 +24,7 @@
     </div>
 
     <!-- Bot Menu -->
-    <div class="container px-lg-5" id="commands_head">
+    <div class="container px-lg-5" id="command_menu">
       <div class="row">
         <div class="col-sm-3" id="category">
           <div class="list-group" id="myList" role="tablist">
@@ -50,14 +50,48 @@
           <div class="tab-content">
             <% Object.keys(commands).forEach((category,k)=>{ %>
             <div
-              class="tab-pane fade show <%=
-              k==0?'active':''
-              %>"
+              class="tab-pane fade show <%= k==0?'active':'' %>"
               id="<%= category %>"
               role="tabpanel"
               aria-labelledby="list-home-list"
             >
-            <%= category %>
+              <div class="accordion" id="acc_<%= category %>">
+                <% commands[category].forEach((cmd,i)=>{ %>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="h_<%= cmd.name %>">
+                    <button
+                      class="accordion-button <%= i==0? '':'collapsed' %>"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#c_<%= cmd.name %>"
+                      aria-expanded="<%= i==0? 'true':'false' %>"
+                      aria-controls="<%= cmd.name %>"
+                    >
+                      <%= cmd.name %>
+                    </button>
+                  </h2>
+                  <div
+                    id="c_<%= cmd.name %>"
+                    class="accordion-collapse collapse <%= i==0? 'show':'' %>"
+                    aria-labelledby="h_<%= cmd.name %>"
+                    data-bs-parent="#acc_<%= category %>"
+                  >
+                    <div class="accordion-body">
+                      <code>Descripion : </code><%= cmd.description %><br />
+                      <code>Permissions : </code><% cmd.permissions.forEach(p =>
+                      { %>
+                      <kbd><%= p %></kbd>
+                      <% }) %> <br />
+                      <code>Aliases : </code><% cmd.aliases.forEach(a => { %>
+                      <small class="text-muted">[?<%= a %>]</small>
+                      <% }) %> <br />
+                      <code>Usuage : </code
+                      ><small><kbd><%= cmd.usuage %></kbd></small>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+              </div>
             </div>
             <% }) %>
           </div>
