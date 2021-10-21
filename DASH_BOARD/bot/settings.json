@@ -1,0 +1,11 @@
+{
+    "token": "ODg0NDE1MjM0NDIzNTQxNzgx.YTYJ3w.PUAlta2y1fz9bH-aAv8hAz-AOYo",
+    "prefix": "?",
+    "color": {
+        "positive": "GREEN",
+        "negative": "RED",
+        "neutral": "BLUE",
+        "warn": "YELLOW"
+    },
+    "ownerId": "OWNER ID"
+}

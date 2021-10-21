@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<template>
+ <main>
+  <html lang="en">
   <head>
     <!-- META TAGS -->
     <meta charset="UTF-8" />
@@ -11,13 +12,10 @@
       integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/index.css" />
-    <title><%= bot.name %></title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>COE BOT</title>
   </head>
   <body>
-    <!-- HEADER -->
-    <%- include('header'); -%>
-
     <!-- MAIN BODY -->
     <div class="d-flex justify-content-center head">
       <h1>
@@ -78,3 +76,6 @@
     ></script>
   </body>
 </html>
+
+  </main>
+</template>
