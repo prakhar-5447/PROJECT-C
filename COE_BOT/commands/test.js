@@ -74,7 +74,7 @@ exports.default = {
                             return msgInt.user.id === btnInt.user.id;
                         };
                         collector = channel.createMessageComponentCollector({
-                            // filter,
+                            //  filter,
                             max: 1,
                             time: 1000 * 15,
                         });

@@ -40,6 +40,7 @@ client.on("ready", function () {
     new wokcommands_1.default(client, {
         commandsDir: path_1.default.join(__dirname, "commands"),
         featuresDir: path_1.default.join(__dirname, "features"),
+        botOwners: ['825662766584037406'],
         typeScript: true,
         testServers: ["884416707123359785"],
         mongoUri: process.env.MONGO_URI,

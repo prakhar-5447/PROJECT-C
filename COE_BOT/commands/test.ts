@@ -40,7 +40,7 @@ export default {
     };
 
     const collector = channel.createMessageComponentCollector({
-      // filter,
+    //  filter,
       max: 1,
       time: 1000 * 15,
     });
