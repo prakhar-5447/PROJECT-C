@@ -88,7 +88,7 @@ exports.default = {
                 }
                 text = "\ncollected :\n:";
                 collected.forEach(function (message) {
-                    text += message.emoji.name + "\n";
+                    text += "".concat(message.emoji.name, "\n");
                 });
                 message.reply(text);
                 return [2 /*return*/];

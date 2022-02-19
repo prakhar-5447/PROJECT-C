@@ -35,43 +35,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.config = void 0;
-var welcome_schema_1 = __importDefault(require("../models/welcome-schema"));
-var welcomeData = {};
-exports.default = (function (client) {
-    client.on("guildMemberAdd", function (member) { return __awaiter(void 0, void 0, void 0, function () {
-        var guild, id, data, results, channelId, text, channel;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    guild = member.guild, id = member.id;
-                    data = welcomeData[guild.id];
-                    if (!!data) return [3 /*break*/, 2];
-                    return [4 /*yield*/, welcome_schema_1.default.findById(guild.id)];
-                case 1:
-                    results = _a.sent();
-                    if (!results) {
+exports.default = {
+    category: "moderation",
+    description: "delete multiple message at once",
+    //   permission: ["ADMINISTRATOR"],
+    //   requiredRoles:true,
+    maxArgs: 1,
+    expectedArgs: "[amount]",
+    slash: "both",
+    testOnly: true,
+    callback: function (_a) {
+        var message = _a.message, interaction = _a.interaction, channel = _a.channel, args = _a.args;
+        return __awaiter(void 0, void 0, void 0, function () {
+            var amount, size, reply;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        amount = args.length ? parseInt(args.shift()) : 10;
+                        if (!message) return [3 /*break*/, 2];
+                        return [4 /*yield*/, message.delete()];
+                    case 1:
+                        _b.sent();
+                        _b.label = 2;
+                    case 2: return [4 /*yield*/, channel.bulkDelete(amount, true)];
+                    case 3:
+                        size = (_b.sent()).size;
+                        reply = "delete ".concat(size, " message(s)");
+                        if (interaction)
+                            return [2 /*return*/, reply];
+                        channel.send(reply);
                         return [2 /*return*/];
-                    }
-                    channelId = results.channelId, text = results.text;
-                    channel = guild.channels.cache.get(channelId);
-                    data = welcomeData[guild.id] = [channel, text];
-                    _a.label = 2;
-                case 2:
-                    data[0].send({
-                        content: data[1].replace(/@/g, "<@".concat(id, ">")),
-                        allowedMentions: { users: [] },
-                    });
-                    return [2 /*return*/];
-            }
+                }
+            });
         });
-    }); });
-});
-exports.config = {
-    displayName: "welcome-channel",
-    dbName: "WELCOME_CHANNEL",
+    },
 };

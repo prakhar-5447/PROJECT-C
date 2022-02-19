@@ -1,25 +1,22 @@
 {
-  "name": "COE_BOT",
+  "name": "coe_bot",
   "version": "1.0.0",
   "description": "",
-  "main": "COE BOT.js",
+  "main": "COE_BOT.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon COE_BOT.ts",
     "tsc": "tsc -w --skipLibCheck"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.2.0",
-    "dotenv": "^10.0.0",
-    "mongoose": "^6.0.11",
-    "node": "^16.10.0",
-    "nodemon": "^2.0.13",
+    "discord": "^0.8.2",
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.2.2",
+    "node": "^17.4.0",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5",
     "wokcommands": "^1.5.3"
-  },
-  "devDependencies": {
-    "typescript": "^4.4.4"
   }
 }

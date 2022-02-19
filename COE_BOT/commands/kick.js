@@ -32,7 +32,7 @@ exports.default = {
         target.kick(reason);
         return {
             custom: true,
-            content: "You kicked <@" + target.id + ">",
+            content: "You kicked <@".concat(target.id, ">"),
             ephemeral: true,
         };
     },

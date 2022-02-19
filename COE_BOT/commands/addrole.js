@@ -102,7 +102,7 @@ exports.default = {
                             return [2 /*return*/, "unknown message id"];
                         }
                         if (targetMessage.author.id !== ((_c = client.user) === null || _c === void 0 ? void 0 : _c.id)) {
-                            return [2 /*return*/, "please provide a message ID that was sent from <@" + ((_d = client.user) === null || _d === void 0 ? void 0 : _d.id) + ">"];
+                            return [2 /*return*/, "please provide a message ID that was sent from <@".concat((_d = client.user) === null || _d === void 0 ? void 0 : _d.id, ">")];
                         }
                         row = targetMessage.components[0];
                         if (!row) {
@@ -118,7 +118,7 @@ exports.default = {
                                 if (o.value == option[0].value) {
                                     return [2 /*return*/, {
                                             custom: true,
-                                            content: "<@" + o.value + "> is already part of this menu",
+                                            content: "<@".concat(o.value, "> is already part of this menu"),
                                             allowedMentions: {
                                                 roles: [],
                                             },
@@ -140,7 +140,7 @@ exports.default = {
                         targetMessage.edit({ components: [row] });
                         return [2 /*return*/, {
                                 custom: true,
-                                content: "added <@&" + role.id + "> to auto role menu",
+                                content: "added <@&".concat(role.id, "> to auto role menu"),
                                 allowedMentions: {
                                     roles: [],
                                 },

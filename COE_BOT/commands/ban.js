@@ -32,7 +32,7 @@ exports.default = {
         target.ban({ reason: reason, days: 7 });
         return {
             custom: true,
-            content: "You banned <@" + target.id + ">",
+            content: "You banned <@".concat(target.id, ">"),
             ephemeral: true,
         };
     },
