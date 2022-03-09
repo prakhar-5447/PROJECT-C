@@ -14,11 +14,14 @@ const client = new DiscordJS.Client({
 });
 
 client.on("ready", () => {
+  let handler = require("./command-handler");
+  if (handler.default) handler = handler.default;
+  handler(client);
   console.log("Bot is ready");
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     featuresDir: path.join(__dirname, "features"),
-    botOwners:['825662766584037406'],
+    botOwners: ["825662766584037406"],
     typeScript: true,
     testServers: ["884416707123359785"],
     mongoUri: process.env.MONGO_URI,
