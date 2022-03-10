@@ -17,7 +17,7 @@ client.on("ready", () => {
   let handler = require("./command-handler");
   if (handler.default) handler = handler.default;
   handler(client);
-  console.log("Bot is ready");
+  console.log("I'm online...⚓");
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     featuresDir: path.join(__dirname, "features"),

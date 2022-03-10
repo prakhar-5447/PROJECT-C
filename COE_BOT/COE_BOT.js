@@ -40,7 +40,7 @@ client.on("ready", function () {
     if (handler.default)
         handler = handler.default;
     handler(client);
-    console.log("Bot is ready");
+    console.log("I'm online...⚓");
     new wokcommands_1.default(client, {
         commandsDir: path_1.default.join(__dirname, "commands"),
         featuresDir: path_1.default.join(__dirname, "features"),
