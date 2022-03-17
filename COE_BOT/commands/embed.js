@@ -44,43 +44,34 @@ exports.default = {
     testOnly: true,
     permissions: ["ADMINISTRATOR"],
     callback: function (_a) {
-        var message = _a.message, text = _a.text;
+        var message = _a.message, text = _a.text, channel = _a.channel;
         return __awaiter(void 0, void 0, void 0, function () {
-            var date, newDate, embed, newMessage, newEmbed;
+            var date, newDate, embed;
             return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        date = new Date(), newDate = [date.getMonth() + 1, date.getDate(), date.getFullYear()].join("/") +
-                            " " +
-                            [date.getHours(), date.getMinutes(), date.getSeconds()].join(":");
-                        embed = new discord_js_1.MessageEmbed()
-                            .setColor("#0099ff")
-                            .setTitle("New Member Joined to Server")
-                            .setURL("https://discord.js.org/")
-                            .setAuthor("Welcome to CODERS EVOKE", "https://cdn.discordapp.com/attachments/884416707123359788/885532153146916874/ajax-loader.gif", "https://coders-evoke-community.github.io/CodersEvoke_website/")
-                            .setDescription("<:favicon:885127725646491669> Thankyou for joining  {member.mention}  you are {guild.member_count}th member in server check {test.mention} channel")
-                            .setThumbnail("https://cdn.discordapp.com/attachments/884416707123359788/885536600258404372/ajax-loader_1.gif")
-                            .addFields([
-                            { name: "Regular field title", value: "Some value here" },
-                            { name: "\u200B", value: "\u200B" },
-                            { name: "Inline field title", value: "Some value here", inline: true },
-                            { name: "Inline field title", value: "Some value here", inline: true },
-                        ])
-                            .addField("Inline field title", "Some value here", true)
-                            .setImage("https://media.discordapp.net/attachments/722437402685341766/801262293693890580/banner.gif")
-                            // .setTimestamp()
-                            .setFooter("member.avatar_url" + " " + '' + newDate, "https://i.imgur.com/AfFp7pu.png");
-                        return [4 /*yield*/, message.reply({ embeds: [embed] })];
-                    case 1:
-                        newMessage = _b.sent();
-                        return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(resolve, 5000); })];
-                    case 2:
-                        _b.sent();
-                        newEmbed = newMessage.embeds[0];
-                        newEmbed.setTitle("edited title");
-                        newMessage.edit({ embeds: [newEmbed] });
-                        return [2 /*return*/];
-                }
+                date = new Date(), newDate = [date.getMonth() + 1, date.getDate(), date.getFullYear()].join("/") +
+                    " " +
+                    [date.getHours(), date.getMinutes(), date.getSeconds()].join(":");
+                embed = new discord_js_1.MessageEmbed()
+                    .setColor("#0099ff")
+                    .setTitle("PRAKHAR SAHU's SOCIALS")
+                    .setURL("https://discord.js.org/") //link in title
+                    .setAuthor("Welcome to COE BOT OFFICIAL's SERVER", "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png", //bot logo
+                "https://discord.gg/fUPHBBpT6e" //bot link
+                )
+                    .setDescription("<:favicon:885127725646491669> Thankyou for joining  {member.mention}  you are {guild.member_count}th member in server check {test.mention} channel")
+                    .setThumbnail("https://cdn.discordapp.com/attachments/884416707123359788/885536600258404372/ajax-loader_1.gif")
+                    .addFields([
+                    { name: "Regular field title", value: "Some value here" },
+                    { name: "\u200B", value: "\u200B" },
+                    { name: "Inline field title", value: "Some value here", inline: true },
+                    { name: "Inline field title", value: "Some value here", inline: true },
+                ])
+                    .addField("Inline field title", "Some value here", true)
+                    .setImage("https://media.discordapp.net/attachments/722437402685341766/801262293693890580/banner.gif")
+                    // .setTimestamp()
+                    .setFooter("member.avatar_url" + " " + '' + newDate, "https://i.imgur.com/AfFp7pu.png");
+                channel.send({ embeds: [embed] });
+                return [2 /*return*/];
             });
         });
     },
