@@ -44,32 +44,67 @@ exports.default = {
     testOnly: true,
     permissions: ["ADMINISTRATOR"],
     callback: function (_a) {
-        var message = _a.message, text = _a.text, channel = _a.channel;
+        var text = _a.text, channel = _a.channel, member = _a.member;
         return __awaiter(void 0, void 0, void 0, function () {
-            var date, newDate, embed;
+            var date, newDate, icon, embed;
             return __generator(this, function (_b) {
                 date = new Date(), newDate = [date.getMonth() + 1, date.getDate(), date.getFullYear()].join("/") +
                     " " +
                     [date.getHours(), date.getMinutes(), date.getSeconds()].join(":");
+                icon = "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png";
                 embed = new discord_js_1.MessageEmbed()
                     .setColor("#0099ff")
                     .setTitle("PRAKHAR SAHU's SOCIALS")
-                    .setURL("https://discord.js.org/") //link in title
-                    .setAuthor("Welcome to COE BOT OFFICIAL's SERVER", "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png", //bot logo
-                "https://discord.gg/fUPHBBpT6e" //bot link
-                )
-                    .setDescription("<:favicon:885127725646491669> Thankyou for joining  {member.mention}  you are {guild.member_count}th member in server check {test.mention} channel")
-                    .setThumbnail("https://cdn.discordapp.com/attachments/884416707123359788/885536600258404372/ajax-loader_1.gif")
+                    .setURL("https://discord.js.org/") //coe bot website link
+                    .setAuthor({
+                    name: "Welcome to COE BOT OFFICIAL's SERVER",
+                    iconURL: "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png",
+                    url: "https://discord.gg/fUPHBBpT6e", //server link
+                })
+                    .setDescription("------------丨PROJECT-C丨COE BOT丨------------\n----------丨LEARN丨BUILD丨EVOLVE丨----------")
+                    .setThumbnail("https://cdn.discordapp.com/attachments/950812051993935914/953998540126957588/loading_2.gif")
                     .addFields([
-                    { name: "Regular field title", value: "Some value here" },
-                    { name: "\u200B", value: "\u200B" },
-                    { name: "Inline field title", value: "Some value here", inline: true },
-                    { name: "Inline field title", value: "Some value here", inline: true },
+                    {
+                        name: "\u200B",
+                        value: "<:instagram:954305044612775977>" +
+                            "[Instagram](https://instagram.com/prakhar_2039)" + "```prakhar_2039```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "<:twitter:954009091158708305>" +
+                            "[Twitter](https://twitter.com/PRAKHAR_2039)" + "```PRAKHAR_2039```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "<:linkedin:954306145185579028>" +
+                            "[Linkedin](https://www.linkedin.com/in/prakhar-sahu-4519b8206)" + "```PRAKHAR SAHU```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "<:github:954306403567292416>" +
+                            "[Github](https://github.com/PrakharSahu02)" + "```PrakharSahu02```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "<:discord:954246480753983488>" + "Discord" + "```PRAKHAR#2039```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "<:gmail:954246385434247188>" + "Gmail" + "```sahuprakhar022003@gmail.com```",
+                    },
+                    {
+                        name: "\u200B",
+                        value: "\u200B",
+                    },
                 ])
-                    .addField("Inline field title", "Some value here", true)
-                    .setImage("https://media.discordapp.net/attachments/722437402685341766/801262293693890580/banner.gif")
-                    // .setTimestamp()
-                    .setFooter("member.avatar_url" + " " + '' + newDate, "https://i.imgur.com/AfFp7pu.png");
+                    // .setImage(
+                    //   "https://media.discordapp.net/attachments/722437402685341766/801262293693890580/banner.gif"
+                    // )
+                    .setTimestamp()
+                    .setFooter({
+                    text: "".concat(member) + "  丨  " + newDate,
+                    iconURL: "https://cdn.discordapp.com/attachments/950812051993935914/954000849565270036/loading_3.gif",
+                });
                 channel.send({ embeds: [embed] });
                 return [2 /*return*/];
             });
