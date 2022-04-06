@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,10 +60,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var discord_js_1 = require("discord.js");
+var data = __importStar(require("./info.json"));
 var embeds = [];
 var pages = {};
-for (var a = 0; a < 4; ++a) {
-    embeds.push(new discord_js_1.MessageEmbed().setDescription("page ".concat(a + 1)));
+var Data = data["commands"];
+for (var i = 0; i < Object.keys(Data).length; i++) {
+    var key = Object.keys(Data[i]);
+    var value = Object.values(Data[i]);
+    embeds.push(new discord_js_1.MessageEmbed().addFields([
+        {
+            name: "".concat(key[0]),
+            value: "".concat(value[0]),
+        },
+        {
+            name: "".concat(key[1]),
+            value: "".concat(value[1]),
+        },
+        {
+            name: "".concat(key[2]),
+            value: "".concat(value[2]),
+        },
+    ]));
 }
 var getRow = function (id) {
     var row = new discord_js_1.MessageActionRow();
@@ -57,8 +97,8 @@ var getRow = function (id) {
     return row;
 };
 exports.default = {
-    category: "testing",
-    description: "creates an embed pagination ",
+    category: "help",
+    description: "creates an embed paginated help commands list ",
     slash: "both",
     testOnly: true,
     callback: function (_a) {

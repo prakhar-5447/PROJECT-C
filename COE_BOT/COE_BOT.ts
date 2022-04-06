@@ -19,7 +19,7 @@ client.on("ready", () => {
   handler(client);
   console.log("I'm online...⚓");
   new WOKCommands(client, {
-    commandsDir: path.join(__dirname, "commands","economy"),
+    commandsDir: path.join(__dirname, "commands"),
     featuresDir: path.join(__dirname, "features"),
     botOwners: ["825662766584037406"],
     typeScript: true,

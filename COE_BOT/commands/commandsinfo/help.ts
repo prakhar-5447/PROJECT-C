@@ -5,13 +5,32 @@ import {
   MessageButton,
   MessageEmbed,
 } from "discord.js";
+import * as data from "./info.json";
 import { ICommand } from "wokcommands";
 
 const embeds: MessageEmbed[] = [];
 const pages = {} as { [key: string]: number };
 
-for (let a = 0; a < 4; ++a) {
-  embeds.push(new MessageEmbed().setDescription(`page ${a + 1}`));
+let Data = data["commands"];
+for (let i = 0; i < Object.keys(Data).length; i++) {
+  let key = Object.keys(Data[i]);
+  let value = Object.values(Data[i]);
+  embeds.push(
+    new MessageEmbed().addFields([
+      {
+        name: `${key[0]}`,
+        value: `${value[0]}`,
+      },
+      {
+        name: `${key[1]}`,
+        value: `${value[1]}`,
+      },
+      {
+        name: `${key[2]}`,
+        value: `${value[2]}`,
+      },
+    ])
+  );
 }
 
 const getRow = (id: string) => {
@@ -34,8 +53,8 @@ const getRow = (id: string) => {
 };
 
 export default {
-  category: "testing",
-  description: "creates an embed pagination ",
+  category: "help",
+  description: "creates an embed paginated help commands list ",
   slash: "both",
   testOnly: true,
   callback: async ({ user, message, interaction, channel }) => {

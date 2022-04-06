@@ -6,6 +6,6 @@ export default {
   slash: 'both',
   testOnly: true,
   callback: ({ }) => {
-  return 'pong'
+  return 'pong';
   },
 } as ICommand;

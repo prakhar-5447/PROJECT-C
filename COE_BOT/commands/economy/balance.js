@@ -5,7 +5,7 @@ exports.default = {
     description: "check balance",
     testOnly: true,
     // permissions:['ADMINISTRATOR'],
-    slash: true,
+    slash: "both",
     guildOnly: true,
     maxArgs: 1,
     expectedArgs: "<user>",

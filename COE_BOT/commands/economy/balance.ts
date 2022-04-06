@@ -1,4 +1,3 @@
-import { Guild, GuildMember } from "discord.js";
 import { ICommand } from "wokcommands";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   description: "check balance",
   testOnly: true,
   // permissions:['ADMINISTRATOR'],
-  slash: true,
+  slash: "both",
   guildOnly: true,
   maxArgs: 1,
   expectedArgs: "<user>",

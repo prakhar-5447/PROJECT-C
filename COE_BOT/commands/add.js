@@ -11,6 +11,6 @@ exports.default = {
             var arg = args_1[_a];
             sum += parseInt(arg);
         }
-        return message.reply("the sum is ".concat(sum));
+        message.reply("the sum is ".concat(sum));
     },
 };

@@ -1,0 +1,14 @@
+{
+  "commands": [
+    {
+      "kick": "kick user",
+      "ban": "ban user",
+      "warn": "warn user"
+    },
+    {
+      "play": "play user",
+      "mute": "mute user",
+      "hack": "hack user"
+    }
+  ]
+}
