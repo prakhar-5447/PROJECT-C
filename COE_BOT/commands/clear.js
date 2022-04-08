@@ -46,26 +46,23 @@ exports.default = {
     slash: "both",
     testOnly: true,
     callback: function (_a) {
-        var message = _a.message, interaction = _a.interaction, channel = _a.channel, args = _a.args;
+        var interaction = _a.interaction, channel = _a.channel, args = _a.args;
         return __awaiter(void 0, void 0, void 0, function () {
             var amount, size, reply;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!interaction) return [3 /*break*/, 3];
                         amount = args.length ? parseInt(args.shift()) : 10;
-                        if (!message) return [3 /*break*/, 2];
-                        return [4 /*yield*/, message.delete()];
+                        return [4 /*yield*/, channel.bulkDelete(amount, true)];
                     case 1:
-                        _b.sent();
-                        _b.label = 2;
-                    case 2: return [4 /*yield*/, channel.bulkDelete(amount, true)];
-                    case 3:
                         size = (_b.sent()).size;
-                        reply = "delete ".concat(size, " message(s)");
-                        if (interaction)
-                            return [2 /*return*/, reply];
-                        channel.send(reply);
-                        return [2 /*return*/];
+                        return [4 /*yield*/, "delete ".concat(size, " message(s)")];
+                    case 2:
+                        reply = _b.sent();
+                        interaction.reply(reply);
+                        _b.label = 3;
+                    case 3: return [2 /*return*/];
                 }
             });
         });

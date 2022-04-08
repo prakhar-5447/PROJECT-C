@@ -40,33 +40,33 @@ export default {
           name: "\u200B",
           value:
             "<:instagram:954305044612775977>" +
-            "[Instagram](https://instagram.com/prakhar_2039)"+"```prakhar_2039```",
+            "[Instagram](https://instagram.com/pratham_0094)"+"```pratham_0094```",
         },
         {
           name: "\u200B",
           value:
             "<:twitter:954009091158708305>" +
-            "[Twitter](https://twitter.com/PRAKHAR_2039)"+"```PRAKHAR_2039```",
+            "[Twitter](https://twitter.com/pratham_0094)"+"```pratham_0094```",
         },
         {
           name: "\u200B",
           value:
             "<:linkedin:954306145185579028>" +
-            "[Linkedin](https://www.linkedin.com/in/prakhar-sahu-4519b8206)"+"```PRAKHAR SAHU```",
+            "[Linkedin](https://www.linkedin.com/in/prakhar-sahu-4519b8206)"+"```PRATHAM SAHU```",
         },
         {
           name: "\u200B",
           value:
             "<:github:954306403567292416>" +
-            "[Github](https://github.com/PrakharSahu02)"+"```PrakharSahu02```",
+            "[Github](https://github.com/pratham-0094)"+"```pratham-0094```",
         },
         {
           name: "\u200B",
-          value: "<:discord:954246480753983488>"+"Discord"+"```PRAKHAR#2039```",
+          value: "<:discord:954246480753983488>"+"Discord"+"```PRATHAM#0094```",
         },
         {
           name: "\u200B",
-          value: "<:gmail:954246385434247188>"+"Gmail"+"```sahuprakhar022003@gmail.com```",
+          value: "<:gmail:954246385434247188>"+"Gmail"+"```sahupratham022003@gmail.com```",
         },
         {
           name: "\u200B",

@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { ICommand } from "wokcommands";
-import warnSchema from "../models/warn-schema";
+import warnSchema from "../../models/warn-schema";
 
 export default {
   category: "moderation",

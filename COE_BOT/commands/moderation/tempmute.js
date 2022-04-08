@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var punishment_schema_1 = __importDefault(require("../models/punishment-schema"));
+var punishment_schema_1 = __importDefault(require("../../models/punishment-schema"));
 exports.default = {
     category: "moderation",
     description: "temporary ban a user ",

@@ -1,5 +1,5 @@
 import { User } from "discord.js";
-import punishmentSchema from "../models/punishment-schema";
+import punishmentSchema from "../../models/punishment-schema";
 import { ICommand } from "wokcommands";
 
 export default {

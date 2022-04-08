@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var discord_js_1 = require("discord.js");
-var warn_schema_1 = __importDefault(require("../models/warn-schema"));
+var warn_schema_1 = __importDefault(require("../../models/warn-schema"));
 exports.default = {
     category: "moderation",
     description: "warn a user ",
