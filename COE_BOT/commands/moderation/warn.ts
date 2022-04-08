@@ -63,7 +63,10 @@ export default {
       ],
     },
   ],
-  callback: async ({ guild, member: staff, interaction }) => {
+  callback: async ({ guild, interaction }) => {
+    if(!interaction){
+      return;
+    }
     const subCommand = interaction.options.getSubcommand();
     const user = interaction.options.getUser("user");
     const reason = interaction.options.getString("reason");
@@ -72,7 +75,7 @@ export default {
     if (subCommand === "add") {
       const warnings = await warnSchema.create({
         userId: user?.id,
-        staffId: staff.id,
+        staffId: interaction.user.id,
         guildId: guild?.id,
         reason,
       });

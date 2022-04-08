@@ -103,12 +103,15 @@ exports.default = {
         },
     ],
     callback: function (_a) {
-        var guild = _a.guild, staff = _a.member, interaction = _a.interaction;
+        var guild = _a.guild, interaction = _a.interaction;
         return __awaiter(void 0, void 0, void 0, function () {
             var subCommand, user, reason, id, warnings, warnings, warnings, description, _i, warnings_1, warn, embed;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!interaction) {
+                            return [2 /*return*/];
+                        }
                         subCommand = interaction.options.getSubcommand();
                         user = interaction.options.getUser("user");
                         reason = interaction.options.getString("reason");
@@ -116,7 +119,7 @@ exports.default = {
                         if (!(subCommand === "add")) return [3 /*break*/, 2];
                         return [4 /*yield*/, warn_schema_1.default.create({
                                 userId: user === null || user === void 0 ? void 0 : user.id,
-                                staffId: staff.id,
+                                staffId: interaction.user.id,
                                 guildId: guild === null || guild === void 0 ? void 0 : guild.id,
                                 reason: reason,
                             })];

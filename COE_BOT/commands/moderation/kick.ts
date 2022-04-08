@@ -12,11 +12,12 @@ export default {
   minArgs: 2,
   expectedArgs: "<user> <reason>",
   expectedArgsTypes: ["USER", "STRING"],
-  callback: ({ message, interaction, args }) => {
-    const target = message
-      ? message.mentions.members?.first()
-      : (interaction.options.getMember("user") as GuildMember);
-
+  callback: ({ interaction, args }) => {
+    const target = interaction.options.getMember("user") as GuildMember;
+    if (!interaction) {
+      return;
+    }
+    
     if (!target) {
       return {
         custom: true,
@@ -25,11 +26,11 @@ export default {
       };
     }
     if (!target.kickable) {
-        return "cannot kick that user";
+      return "cannot kick that user";
     }
     args.shift();
     const reason = args.join(" ");
-    
+
     target.kick(reason);
     return {
       custom: true,

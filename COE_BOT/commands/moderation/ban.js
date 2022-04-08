@@ -6,17 +6,16 @@ exports.default = {
     slash: "both",
     testOnly: true,
     // permissions:['ADMINISTRATOR'],
-    requireRoles: true,
     guildOnly: true,
     minArgs: 2,
     expectedArgs: "<user> <reason>",
     expectedArgsTypes: ["USER", "STRING"],
     callback: function (_a) {
-        var _b;
-        var message = _a.message, interaction = _a.interaction, args = _a.args;
-        var target = message
-            ? (_b = message.mentions.members) === null || _b === void 0 ? void 0 : _b.first()
-            : interaction.options.getMember("user");
+        var interaction = _a.interaction, args = _a.args;
+        if (!interaction) {
+            return;
+        }
+        var target = interaction.options.getMember("user");
         if (!target) {
             return {
                 custom: true,

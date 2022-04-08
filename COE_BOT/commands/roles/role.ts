@@ -11,7 +11,7 @@ export default {
   slash: "both",
   testOnly: true,
   guildOnly: true,
-  options: [  
+  options: [
     {
       name: "actions",
       description: `the action to perform one of the: ${actions.join(",")}`,
@@ -32,7 +32,10 @@ export default {
       required: true,
     },
   ],
-  callback: ({ guild, args }) => {
+  callback: ({ interaction, guild, args }) => {
+    if (!interaction) {
+      return;
+    }
     const action = args.shift();
     if (!action || !actions?.includes(action)) {
       return `unknown action! please use one of following: ${actions.join(
@@ -61,8 +64,13 @@ export default {
       return "role given";
     }
     if (action === "remove") {
-      member.roles.remove(role);
-      return "role remove";
+      let flag = member.roles.cache.has(roleId) ? true : false;
+
+      if (flag) {
+        member.roles.remove(role);
+        return "role remove";
+      }
+      return "user does not have this role";
     }
     return "unknown action";
   },

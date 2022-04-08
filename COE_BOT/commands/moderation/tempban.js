@@ -51,32 +51,29 @@ exports.default = {
     expectedArgs: "<user> <duration> <reason>",
     expectedArgsTypes: ["USER", "STRING", "STRING"],
     callback: function (_a) {
-        var message = _a.message, interaction = _a.interaction, client = _a.client, guild = _a.guild, args = _a.args, staff = _a.member;
+        var interaction = _a.interaction, client = _a.client, guild = _a.guild, args = _a.args;
         return __awaiter(void 0, void 0, void 0, function () {
             var userId, duration, reason, user, time, type, split, expires, result, ignore_1;
-            var _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         if (!guild)
                             return [2 /*return*/, "you can only use it in a server"];
+                        if (!interaction) {
+                            return [2 /*return*/];
+                        }
                         userId = args.shift();
                         duration = args.shift();
                         reason = args.join(" ");
-                        if (message) {
-                            user = (_b = message.mentions.users) === null || _b === void 0 ? void 0 : _b.first();
-                        }
-                        else {
-                            user = interaction.options.getUser("user");
-                        }
+                        user = interaction.options.getUser("user");
                         if (!!user) return [3 /*break*/, 2];
                         userId = userId.replace(/[<@!>]/g, "");
                         return [4 /*yield*/, client.users.fetch(userId)];
                     case 1:
-                        user = _c.sent();
+                        user = _b.sent();
                         if (!user)
                             return [2 /*return*/, "could not find user with ".concat(userId)];
-                        _c.label = 2;
+                        _b.label = 2;
                     case 2:
                         userId = user.id;
                         try {
@@ -104,28 +101,28 @@ exports.default = {
                                 type: "ban",
                             })];
                     case 3:
-                        result = _c.sent();
+                        result = _b.sent();
                         if (result)
                             return [2 /*return*/, "<@".concat(userId, "> is already banned in the server")];
-                        _c.label = 4;
+                        _b.label = 4;
                     case 4:
-                        _c.trys.push([4, 7, , 8]);
+                        _b.trys.push([4, 7, , 8]);
                         return [4 /*yield*/, guild.members.ban(userId, { days: 7, reason: reason })];
                     case 5:
-                        _c.sent();
+                        _b.sent();
                         return [4 /*yield*/, new punishment_schema_1.default({
                                 userId: userId,
                                 guildId: guild.id,
-                                staffId: staff.id,
+                                staffId: interaction.user.id,
                                 reason: reason,
                                 expires: expires,
                                 type: "ban",
                             }).save()];
                     case 6:
-                        _c.sent();
+                        _b.sent();
                         return [3 /*break*/, 8];
                     case 7:
-                        ignore_1 = _c.sent();
+                        ignore_1 = _b.sent();
                         return [2 /*return*/, "cannot ban that user"];
                     case 8: return [2 /*return*/, "<@".concat(userId, "> has been banned for ").concat(duration)];
                 }

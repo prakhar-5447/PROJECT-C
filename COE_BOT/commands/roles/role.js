@@ -33,7 +33,10 @@ exports.default = {
         },
     ],
     callback: function (_a) {
-        var guild = _a.guild, args = _a.args;
+        var interaction = _a.interaction, guild = _a.guild, args = _a.args;
+        if (!interaction) {
+            return;
+        }
         var action = args.shift();
         if (!action || !(actions === null || actions === void 0 ? void 0 : actions.includes(action))) {
             return "unknown action! please use one of following: ".concat(actions.join(","));
@@ -58,8 +61,12 @@ exports.default = {
             return "role given";
         }
         if (action === "remove") {
-            member.roles.remove(role);
-            return "role remove";
+            var flag = member.roles.cache.has(roleId) ? true : false;
+            if (flag) {
+                member.roles.remove(role);
+                return "role remove";
+            }
+            return "user does not have this role";
         }
         return "unknown action";
     },

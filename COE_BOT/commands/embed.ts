@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Interaction, MessageEmbed } from "discord.js";
 import { ICommand } from "wokcommands";
 
 export default {
@@ -7,7 +7,7 @@ export default {
   slash: "both",
   testOnly: true,
   permissions: ["ADMINISTRATOR"],
-  callback: async ({ text, channel, member }) => {
+  callback: async ({ interaction, text, member }) => {
     // const json = JSON.parse(text);
     // const embed = new MessageEmbed(json);
     // return embed;
@@ -40,33 +40,41 @@ export default {
           name: "\u200B",
           value:
             "<:instagram:954305044612775977>" +
-            "[Instagram](https://instagram.com/pratham_0094)"+"```pratham_0094```",
+            "[Instagram](https://instagram.com/pratham_0094)" +
+            "```pratham_0094```",
         },
         {
           name: "\u200B",
           value:
             "<:twitter:954009091158708305>" +
-            "[Twitter](https://twitter.com/pratham_0094)"+"```pratham_0094```",
+            "[Twitter](https://twitter.com/pratham_0094)" +
+            "```pratham_0094```",
         },
         {
           name: "\u200B",
           value:
             "<:linkedin:954306145185579028>" +
-            "[Linkedin](https://www.linkedin.com/in/prakhar-sahu-4519b8206)"+"```PRATHAM SAHU```",
+            "[Linkedin](https://www.linkedin.com/in/prakhar-sahu-4519b8206)" +
+            "```PRATHAM SAHU```",
         },
         {
           name: "\u200B",
           value:
             "<:github:954306403567292416>" +
-            "[Github](https://github.com/pratham-0094)"+"```pratham-0094```",
+            "[Github](https://github.com/pratham-0094)" +
+            "```pratham-0094```",
         },
         {
           name: "\u200B",
-          value: "<:discord:954246480753983488>"+"Discord"+"```PRATHAM#0094```",
+          value:
+            "<:discord:954246480753983488>" + "Discord" + "```PRATHAM#0094```",
         },
         {
           name: "\u200B",
-          value: "<:gmail:954246385434247188>"+"Gmail"+"```sahupratham022003@gmail.com```",
+          value:
+            "<:gmail:954246385434247188>" +
+            "Gmail" +
+            "```sahupratham022003@gmail.com```",
         },
         {
           name: "\u200B",
@@ -82,6 +90,6 @@ export default {
         iconURL:
           "https://cdn.discordapp.com/attachments/950812051993935914/954000849565270036/loading_3.gif",
       });
-    channel.send({ embeds: [embed] });
+    interaction.reply({ embeds: [embed] });
   },
 } as ICommand;

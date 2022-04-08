@@ -13,26 +13,17 @@ export default {
   expectedArgs: "<user> <duration> <reason>",
   expectedArgsTypes: ["USER", "STRING", "STRING"],
 
-  callback: async ({
-    message,
-    interaction,
-    client,
-    guild,
-    args,
-    member: staff,
-  }) => {
+  callback: async ({ interaction, client, guild, args }) => {
     if (!guild) return "you can only use it in a server";
-
+    if (!interaction) {
+      return;
+    }
     let userId = args.shift()!;
     const duration = args.shift()!;
     const reason = args.join(" ");
     let user: User | undefined;
 
-    if (message) {
-      user = message.mentions.users?.first();
-    } else {
-      user = interaction.options.getUser("user") as User;
-    }
+    user = interaction.options.getUser("user") as User;
 
     if (!user) {
       userId = userId.replace(/[<@!>]/g, "");
@@ -78,7 +69,7 @@ export default {
       await new punishmentSchema({
         userId,
         guildId: guild.id,
-        staffId: staff.id,
+        staffId: interaction.user.id,
         reason,
         expires,
         type: "ban",
