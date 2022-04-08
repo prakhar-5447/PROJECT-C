@@ -11,7 +11,7 @@ export default {
   slash: "both",
   testOnly: true,
   guildOnly: true,
-  options: [
+  options: [  
     {
       name: "actions",
       description: `the action to perform one of the: ${actions.join(",")}`,

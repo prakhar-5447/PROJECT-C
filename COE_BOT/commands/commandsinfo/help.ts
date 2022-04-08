@@ -15,22 +15,15 @@ let Data = data["commands"];
 for (let i = 0; i < Object.keys(Data).length; i++) {
   let key = Object.keys(Data[i]);
   let value = Object.values(Data[i]);
-  embeds.push(
-    new MessageEmbed().addFields([
-      {
-        name: `${key[0]}`,
-        value: `${value[0]}`,
-      },
-      {
-        name: `${key[1]}`,
-        value: `${value[1]}`,
-      },
-      {
-        name: `${key[2]}`,
-        value: `${value[2]}`,
-      },
-    ])
-  );
+  let abc = new MessageEmbed();
+  for (let j = 0; j < key.length; j++) {
+    abc.addFields({
+      name: `${key[i]}`,
+      value: `${value[i]}`,
+      inline: false,  
+    });
+  }
+  embeds.push(abc);
 }
 
 const getRow = (id: string) => {

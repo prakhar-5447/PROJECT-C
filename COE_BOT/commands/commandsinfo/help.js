@@ -67,20 +67,15 @@ var Data = data["commands"];
 for (var i = 0; i < Object.keys(Data).length; i++) {
     var key = Object.keys(Data[i]);
     var value = Object.values(Data[i]);
-    embeds.push(new discord_js_1.MessageEmbed().addFields([
-        {
-            name: "".concat(key[0]),
-            value: "".concat(value[0]),
-        },
-        {
-            name: "".concat(key[1]),
-            value: "".concat(value[1]),
-        },
-        {
-            name: "".concat(key[2]),
-            value: "".concat(value[2]),
-        },
-    ]));
+    var abc = new discord_js_1.MessageEmbed();
+    for (var j = 0; j < key.length; j++) {
+        abc.addFields({
+            name: "".concat(key[i]),
+            value: "".concat(value[i]),
+            inline: false,
+        });
+    }
+    embeds.push(abc);
 }
 var getRow = function (id) {
     var row = new discord_js_1.MessageActionRow();

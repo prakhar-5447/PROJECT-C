@@ -7,8 +7,7 @@
     },
     {
       "play": "play user",
-      "mute": "mute user",
-      "hack": "hack user"
+      "mute": "mute user"
     }
   ]
 }
