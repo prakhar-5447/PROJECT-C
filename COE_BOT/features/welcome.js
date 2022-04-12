@@ -40,11 +40,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
+var discord_js_1 = require("discord.js");
 var welcome_schema_1 = __importDefault(require("../models/welcome-schema"));
 var welcomeData = {};
 exports.default = (function (client) {
     client.on("guildMemberAdd", function (member) { return __awaiter(void 0, void 0, void 0, function () {
-        var guild, id, data, results, channelId, text, channel;
+        var guild, id, data, results, channelId, channel, embed;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -57,9 +58,33 @@ exports.default = (function (client) {
                     if (!results) {
                         return [2 /*return*/];
                     }
-                    channelId = results.channelId, text = results.text;
-                    channel = guild.channels.cache.get(channelId);
-                    data = welcomeData[guild.id] = [channel, text];
+                    channelId = results.channelId;
+                    channel = client.channels.cache.get(channelId);
+                    embed = new discord_js_1.MessageEmbed()
+                        .setColor("#0099ff")
+                        .setTitle("PRAKHAR SAHU's SOCIALS")
+                        .setURL("https://discord.js.org/") //coe bot website link
+                        .setAuthor({
+                        name: "Welcome to COE BOT OFFICIAL's SERVER",
+                        iconURL: "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png",
+                        url: "https://discord.gg/fUPHBBpT6e", //server link
+                    })
+                        .setDescription("------------丨PROJECT-C丨COE BOT丨------------\n----------丨LEARN丨BUILD丨EVOLVE丨----------")
+                        .setThumbnail("https://cdn.discordapp.com/attachments/950812051993935914/953998540126957588/loading_2.gif")
+                        .addFields([
+                        {
+                            name: "\u200B",
+                            value: "<:instagram:954305044612775977>" +
+                                "[Instagram](https://instagram.com/pratham_0094)" +
+                                "```pratham_0094```",
+                        },
+                    ])
+                        .setTimestamp()
+                        .setFooter({
+                        text: "".concat(member),
+                        iconURL: "https://cdn.discordapp.com/attachments/950812051993935914/954000849565270036/loading_3.gif",
+                    });
+                    channel.send({ embeds: [embed] });
                     _a.label = 2;
                 case 2:
                     data[0].send({

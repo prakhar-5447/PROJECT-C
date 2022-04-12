@@ -6,9 +6,8 @@ const welcomeSchema = new Schema({
   _id: reqstring,
   // Channel ID
   channelId: reqstring,
-  text: reqstring,
 });
 
-const name = "welcome-tutorial";
+const name = "welcome-schema";
 
 export default mongoose.models[name] || mongoose.model(name, welcomeSchema,name);

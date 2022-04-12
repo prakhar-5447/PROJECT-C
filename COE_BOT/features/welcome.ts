@@ -1,4 +1,4 @@
-import { Client, TextChannel } from "discord.js";
+import { Client, MessageEmbed, TextChannel } from "discord.js";
 import welcomeSchema from "../models/welcome-schema";
 
 const welcomeData = {} as {
@@ -15,9 +15,42 @@ export default (client: Client) => {
       if (!results) {
         return;
       }
-      const { channelId, text } = results;
-      const channel = guild.channels.cache.get(channelId) as TextChannel;
-      data = welcomeData[guild.id] = [channel, text];
+      const { channelId } = results;
+      const channel = client.channels.cache.get(channelId) as TextChannel;
+
+      const embed = new MessageEmbed()
+        .setColor("#0099ff")
+        .setTitle("PRAKHAR SAHU's SOCIALS")
+        .setURL("https://discord.js.org/") //coe bot website link
+        .setAuthor({
+          name: "Welcome to COE BOT OFFICIAL's SERVER",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/950812051993935914/953923810665562112/1.png", //bot logo
+          url: "https://discord.gg/fUPHBBpT6e", //server link
+        })
+        .setDescription(
+          "------------丨PROJECT-C丨COE BOT丨------------\n----------丨LEARN丨BUILD丨EVOLVE丨----------"
+        )
+        .setThumbnail(
+          "https://cdn.discordapp.com/attachments/950812051993935914/953998540126957588/loading_2.gif"
+        )
+        .addFields([
+          {
+            name: "\u200B",
+            value:
+              "<:instagram:954305044612775977>" +
+              "[Instagram](https://instagram.com/pratham_0094)" +
+              "```pratham_0094```",
+          },
+        ])
+        .setTimestamp()
+        .setFooter({
+          text: `${member}`,
+          iconURL:
+            "https://cdn.discordapp.com/attachments/950812051993935914/954000849565270036/loading_3.gif",
+        });
+
+      channel.send({embeds : [embed]});
     }
     data[0].send({
       content: data[1].replace(/@/g, `<@${id}>`),

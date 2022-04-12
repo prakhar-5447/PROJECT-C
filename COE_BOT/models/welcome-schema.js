@@ -30,7 +30,6 @@ var welcomeSchema = new mongoose_1.Schema({
     _id: reqstring,
     // Channel ID
     channelId: reqstring,
-    text: reqstring,
 });
-var name = "welcome-tutorial";
+var name = "welcome-schema";
 exports.default = mongoose_1.default.models[name] || mongoose_1.default.model(name, welcomeSchema, name);
